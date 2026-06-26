@@ -1,46 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      },
       colors: {
-        accent: {
-          DEFAULT: '#0ea5e9',
-          light: '#38bdf8',
-          dark: '#0284c7',
-        },
-        surface: {
-          light: '#f8fafc',
-          dark: '#0f172a',
-        },
+        ink: "#050712",
+        night: "#080d1d",
+        panel: "rgba(13, 20, 38, 0.72)",
+        line: "rgba(255, 255, 255, 0.12)",
+        cyan: "#55e6ff",
+        violet: "#9b6cff",
+        mint: "#55f0b1",
+        gold: "#f8c866"
       },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'gradient': 'gradient 8s ease infinite',
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "Inter", "ui-sans-serif", "system-ui"]
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
+      boxShadow: {
+        glow: "0 0 42px rgba(85, 230, 255, 0.18)",
+        violet: "0 0 42px rgba(155, 108, 255, 0.18)"
       },
-      backgroundSize: {
-        '300%': '300%',
-      },
-    },
+      backgroundImage: {
+        "premium-gradient":
+          "linear-gradient(135deg, #55e6ff 0%, #9b6cff 46%, #55f0b1 100%)"
+      }
+    }
   },
-  plugins: [],
-}
+  plugins: []
+};

@@ -1,27 +1,49 @@
-export const skillCategories = [
+export const skillGroups = [
   {
-    id: 'programming',
-    label: 'Programming',
-    skills: ['Python', 'Java', 'C', 'JavaScript', 'TypeScript'],
+    title: "Programming Languages",
+    level: "Daily Use",
+    skills: ["Python", "Java", "TypeScript"]
   },
   {
-    id: 'frontend',
-    label: 'Frontend',
-    skills: ['React', 'React Native', 'Angular', 'Tailwind'],
+    title: "Frontend",
+    level: "Project Experience",
+    skills: ["React", "React Native", "Next.js", "Angular", "Tailwind CSS"]
   },
   {
-    id: 'backend',
-    label: 'Backend',
-    skills: ['Node.js', 'FastAPI', 'Flask'],
+    title: "Backend",
+    level: "Daily Use",
+    skills: ["Node.js", "FastAPI", "Flask", "REST APIs", "Microservices"]
   },
   {
-    id: 'cloud-data',
-    label: 'Cloud & Data',
-    skills: ['AWS', 'GCP', 'Databricks', 'Elasticsearch', 'MongoDB', 'PostgreSQL'],
+    title: "Cloud & Data",
+    level: "Hands-on Experience",
+    skills: [
+      "AWS",
+      "GCP",
+      "Elasticsearch",
+      "MongoDB",
+      "PostgreSQL",
+      "MS SQL"
+    ]
   },
   {
-    id: 'tools',
-    label: 'Tools',
-    skills: ['Git', 'Docker', 'Kubernetes', 'n8n', 'Streamlit'],
+    title: "AI",
+    level: "Academic / Practical Knowledge",
+    skills: [
+      "OpenAI Codex",
+      "Claude Code",
+      "Cursor",
+      "Microsoft Copilot",
+      "LLM APIs",
+      "Prompt Engineering",
+      "RAG",
+      "LangChain",
+      "Hugging Face"
+    ]
   },
+  {
+    title: "DevOps",
+    level: "Hands-on Experience",
+    skills: ["Git", "Docker", "Kubernetes", "CI/CD"]
+  }
 ];

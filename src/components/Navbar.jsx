@@ -1,107 +1,96 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { Menu, X, Download } from "lucide-react";
+import { personal } from "../data/personal.js";
 
-const navLinks = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'beyond-code', label: 'Beyond Code' },
-  { id: 'contact', label: 'Contact' },
+const links = [
+  ["Home", "home"],
+  ["About", "about"],
+  ["Experience", "experience"],
+  ["Projects", "projects"],
+  ["Skills", "skills"],
+  ["Achievements", "achievements"],
+  ["Contact", "contact"]
 ];
 
-export default function Navbar({ isDark, onToggleDark }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 18);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
+  const goTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.4 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm'
-          : 'bg-transparent'
+          ? "border-b border-white/10 bg-ink/72 shadow-2xl shadow-black/25 backdrop-blur-2xl"
+          : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
         <button
-          onClick={() => scrollTo('hero')}
-          className="font-display font-semibold text-slate-900 dark:text-white hover:text-accent dark:hover:text-accent-light transition-colors"
+          className="font-display text-lg font-semibold tracking-wide text-white"
+          onClick={() => goTo("home")}
         >
-          NG
+          Nir<span className="text-cyan">.</span>Geron
         </button>
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+
+        <div className="hidden items-center gap-7 lg:flex">
+          {links.map(([label, id]) => (
             <button
-              key={link.id}
-              onClick={() => scrollTo(link.id)}
-              className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-accent dark:hover:text-accent-light transition-colors"
+              key={id}
+              onClick={() => goTo(id)}
+              className="text-sm font-medium text-white/70 transition hover:text-cyan"
             >
-              {link.label}
+              {label}
             </button>
           ))}
-          <button
-            onClick={onToggleDark}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
         </div>
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={onToggleDark}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-          <button
-            onClick={() => setIsOpen((o) => !o)}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
-            aria-label="Menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <a className="btn-primary" href={personal.resumeUrl} download>
+            <Download size={17} />
+            Download Resume
+          </a>
         </div>
+
+        <button
+          className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-white lg:hidden"
+          onClick={() => setOpen((value) => !value)}
+          aria-label="Toggle navigation menu"
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </nav>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800"
-          >
-            <div className="px-6 py-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="text-left py-2 font-medium text-slate-700 dark:text-slate-300 hover:text-accent"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+
+      {open && (
+        <div className="border-t border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-2xl lg:hidden">
+          <div className="mx-auto grid max-w-7xl gap-2">
+            {links.map(([label, id]) => (
+              <button
+                key={id}
+                onClick={() => goTo(id)}
+                className="rounded-xl px-4 py-3 text-left text-sm font-medium text-white/75 transition hover:bg-white/[0.08] hover:text-cyan"
+              >
+                {label}
+              </button>
+            ))}
+            <a className="btn-primary mt-2 justify-center" href={personal.resumeUrl} download>
+              <Download size={17} />
+              Download Resume
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

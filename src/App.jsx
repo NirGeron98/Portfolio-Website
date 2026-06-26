@@ -1,28 +1,29 @@
-import Navbar from './components/Navbar';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Experience from './sections/Experience';
-import Projects from './sections/Projects';
-import Skills from './sections/Skills';
-import BeyondCode from './sections/BeyondCode';
-import Contact from './sections/Contact';
-import { useDarkMode } from './hooks/useDarkMode';
+import Navbar from "./components/Navbar.jsx";
+import Hero from "./components/Hero.jsx";
+import About from "./components/About.jsx";
+import Experience from "./components/Experience.jsx";
+import Education from "./components/Education.jsx";
+import Projects from "./components/Projects.jsx";
+import Skills from "./components/Skills.jsx";
+import Achievements from "./components/Achievements.jsx";
+import Contact from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
-  const [isDark, toggleDark] = useDarkMode();
-
   return (
-    <>
-      <Navbar isDark={isDark} onToggleDark={toggleDark} />
+    <div className="min-h-screen overflow-x-hidden bg-ink text-white">
+      <Navbar />
       <main>
         <Hero />
         <About />
         <Experience />
+        <Education />
         <Projects />
         <Skills />
-        <BeyondCode />
+        <Achievements />
         <Contact />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }

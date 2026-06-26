@@ -1,35 +1,44 @@
 export const experience = [
   {
-    id: 1,
-    role: 'Software Engineer',
-    company: 'KPMG',
-    period: '2025 - Present',
+    title: "Software Engineer",
+    company: "KPMG",
+    period: "2025 - Present",
+    description:
+      "Working on enterprise-scale software and data-oriented systems, with a focus on backend development, cloud migration, Elasticsearch, data pipelines, observability, and internal productivity tools.",
     highlights: [
-      'End-to-end full-stack development',
-      'FastAPI and Node.js backend systems',
-      'Cloud-based ETL pipelines',
-      'Elasticsearch and Kibana observability',
-      'Internal tools used daily by dozens of employees',
-    ],
+      "Developing and maintaining high-performance services using FastAPI and Node.js.",
+      "Working with Elasticsearch optimization, Data Streams, custom Index Templates, and advanced query improvements.",
+      "Contributing to data migrations from on-prem Data Lakes to GCP.",
+      "Designing and implementing data ingestion pipelines using Logstash and Elastic Agents.",
+      "Building Kibana dashboards for technical metrics and business insights.",
+      "Collaborating with stakeholders and technical teams to transform business requirements into production-ready solutions.",
+      "Solo-developed an internal productivity application currently used by dozens of employees."
+    ]
   },
   {
-    id: 2,
-    role: 'Full Stack Developer',
-    company: 'Magic Software',
-    period: '2024 - 2025',
+    title: "Full Stack Developer",
+    company: "Magic Software Enterprises",
+    period: "2024 - 2025",
+    description:
+      "Developed and maintained an information management system for a military unit using Angular on the frontend and Magic's proprietary backend technology.",
     highlights: [
-      'Angular frontend',
-      'Backend with proprietary language',
-      'Military-grade systems',
-    ],
+      "Built and maintained frontend features using Angular.",
+      "Implemented new product features.",
+      "Fixed production issues.",
+      "Worked with product managers and real end users.",
+      "Gained experience in maintaining operational systems."
+    ]
   },
   {
-    id: 3,
-    role: 'Teaching Assistant',
-    company: 'Afeka College',
-    period: '2023',
+    title: "Teaching / Grading Assistant",
+    company: "Afeka College of Engineering",
+    period: "2023 - 2024",
+    description:
+      "Reviewed and graded assignments and exams in undergraduate mathematics courses.",
     highlights: [
-      'Grading and reviewing CS and math assignments',
-    ],
-  },
+      "Provided detailed academic feedback.",
+      "Evaluated mathematical reasoning.",
+      "Strengthened communication, precision, and analytical thinking."
+    ]
+  }
 ];
