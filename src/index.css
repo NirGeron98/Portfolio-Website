@@ -185,7 +185,7 @@ button {
 .floating-badge {
   position: absolute;
   z-index: 5;
-  max-width: 220px;
+  max-width: 260px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
   background: rgba(8, 13, 29, 0.78);
@@ -193,6 +193,7 @@ button {
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.82rem;
   font-weight: 700;
+  white-space: nowrap;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(18px);
 }
@@ -202,7 +203,7 @@ button {
 .badge-2 { left: -1rem; bottom: 25%; }
 .badge-3 { right: -1.6rem; bottom: 30%; }
 .badge-4 { left: 20%; bottom: -1rem; }
-.badge-5 { right: 12%; top: -1rem; }
+.badge-5 { right: 12%; top: -1rem; max-width: none; }
 
 .timeline {
   position: relative;
