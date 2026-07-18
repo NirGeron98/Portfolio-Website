@@ -35,7 +35,7 @@ export const personal = {
       meta: "GPA: 90"
     },
     { title: "Awarded Outstanding Soldier and Investigator honors during military service." },
-    { title: "Built an internal productivity application used by dozens of employees." },
+    { title: "Built and maintained production-grade products used regularly by hundreds of thousands of users as part of my role." },
     { title: "Built backend, data, and AI-oriented projects from idea to implementation." }
   ],
   education: [
