@@ -35,7 +35,7 @@ export const projects = [
     ],
     links: {
       repository: "https://github.com/NirGeron98/Course4Me",
-      liveDemo: ""
+      liveDemo: "https://course-4-me.vercel.app/login"
     }
   },
   {
@@ -54,7 +54,8 @@ export const projects = [
       "Connected backend APIs to analytics views."
     ],
     links: {
-      repository: "https://github.com/NirGeron98/PitWall"
+      repository: "https://github.com/NirGeron98/PitWall",
+      liveDemo: "https://www.f1-pitwall.site/login"
     }
   }
 ];

@@ -66,7 +66,7 @@ export default function ProjectCard({ project, index }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                Live Demo
+                Visit Project
                 <ArrowUpRight size={17} />
               </a>
             )}
